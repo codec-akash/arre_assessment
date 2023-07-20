@@ -15,12 +15,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -69,6 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     svgPath: ImagePath.languageIcon,
                     text: Strings.language,
                     onButtonTap: () async {
+                      if (mounted) {
+                        ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                      }
                       var res = await showModalBottomSheet(
                         context: context,
                         backgroundColor:
@@ -107,9 +104,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Center(
-                    child: Image.asset(
-                      ImagePath.logoImage,
-                      height: 110,
+                    child: Hero(
+                      tag: ImagePath.logoImage,
+                      child: Image.asset(
+                        ImagePath.logoImage,
+                        height: 110,
+                      ),
                     ),
                   )
                 ],

@@ -28,7 +28,6 @@ class ThemeProvider extends StateNotifier<bool> {
       var data = box.get(Keys.themeKeyName);
       state = data;
     }
-    box.close();
   }
 
   Future<void> updateHive() async {

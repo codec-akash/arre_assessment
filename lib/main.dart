@@ -1,4 +1,5 @@
 import 'package:arre_assessment/screens/home_screen.dart';
+import 'package:arre_assessment/screens/splash_screen.dart';
 
 import 'package:arre_assessment/utils/keys.dart';
 import 'package:arre_assessment/provider/theme_provider.dart';
@@ -34,7 +35,7 @@ class MyApp extends ConsumerWidget {
         highlightColor: const Color(0xffEE8C34),
       ),
       themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
