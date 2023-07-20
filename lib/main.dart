@@ -1,4 +1,3 @@
-import 'package:arre_assessment/screens/home_screen.dart';
 import 'package:arre_assessment/screens/splash_screen.dart';
 
 import 'package:arre_assessment/utils/keys.dart';
