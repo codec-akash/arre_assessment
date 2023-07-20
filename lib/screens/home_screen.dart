@@ -1,9 +1,8 @@
 import 'package:arre_assessment/utils/image_path.dart';
 import 'package:arre_assessment/utils/strings.dart';
-import 'package:arre_assessment/utils/themeprovider.dart';
+import 'package:arre_assessment/widget/list_tile_card.dart';
 import 'package:arre_assessment/widget/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,16 +56,29 @@ class _HomeScreenState extends State<HomeScreen> {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  Consumer(
-                    builder: (context, ref, child) {
-                      bool theme = ref.watch<bool>(themeProvider);
-                      return Switch(
-                        value: theme,
-                        onChanged: (val) async {
-                          await ref.read(themeProvider.notifier).toggle();
-                        },
-                      );
-                    },
+                  const ListTileCard(
+                    svgPath: ImagePath.communityIcon,
+                    text: Strings.communityText,
+                  ),
+                  const ListTileCard(
+                    svgPath: ImagePath.helpIcon,
+                    text: Strings.help,
+                  ),
+                  ListTileCard(
+                    svgPath: ImagePath.languageIcon,
+                    text: Strings.language,
+                    onButtonTap: () {},
+                  ),
+                  const ListTileSwitch(text: Strings.interfaceText),
+                  const ListTileText(text: Strings.term),
+                  const ListTileText(text: Strings.privacy),
+                  const ListTileText(text: Strings.deactivateAcc),
+                  const ListTileText(text: Strings.deleteAcc),
+                  ListTileCard(
+                    svgPath: ImagePath.logoutIcon,
+                    text: Strings.logout,
+                    textColor: Theme.of(context).primaryColor,
+                    onButtonTap: () {},
                   ),
                 ],
               ),
