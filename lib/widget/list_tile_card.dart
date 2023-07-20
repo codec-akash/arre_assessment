@@ -22,19 +22,19 @@ class ListTileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(14),
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 7.5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).canvasColor,
-      ),
-      child: GestureDetector(
-        onTap: () {
-          if (onButtonTap != null) {
-            onButtonTap!();
-          }
-        },
+    return GestureDetector(
+      onTap: () {
+        if (onButtonTap != null) {
+          onButtonTap!();
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.all(14),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 7.5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Theme.of(context).canvasColor,
+        ),
         child: Row(
           children: [
             SvgPicture.asset(
@@ -70,19 +70,19 @@ class ListTileText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 14, bottom: 14, right: 20),
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.transparent,
-      ),
-      child: GestureDetector(
-        onTap: () {
-          if (onButtonTap != null) {
-            onButtonTap!();
-          }
-        },
+    return GestureDetector(
+      onTap: () {
+        if (onButtonTap != null) {
+          onButtonTap!();
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.only(top: 14, bottom: 14, right: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.transparent,
+        ),
         child: Row(
           children: [
             const SizedBox(width: 13),
