@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ThemeProvider extends StateNotifier<bool> {
-  ThemeProvider() : super(false) {
+  ThemeProvider() : super(true) {
     getDataFromHive();
   }
 

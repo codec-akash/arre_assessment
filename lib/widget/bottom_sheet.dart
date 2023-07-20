@@ -7,16 +7,23 @@ import 'package:arre_assessment/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BottomModal extends StatefulWidget {
+class BottomModal extends ConsumerStatefulWidget {
   const BottomModal({super.key});
 
   @override
-  State<BottomModal> createState() => _BottomModalState();
+  ConsumerState<BottomModal> createState() => _BottomModalState();
 }
 
-class _BottomModalState extends State<BottomModal> {
+class _BottomModalState extends ConsumerState<BottomModal> {
   List<Language> language = [];
   String selectedLanguage = "English";
+
+  @override
+  void initState() {
+    selectedLanguage = ref.read(languageProvider.notifier).selectedLanguage ??
+        selectedLanguage;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +46,7 @@ class _BottomModalState extends State<BottomModal> {
         Consumer(
           builder: (context, ref, child) {
             language = ref.watch<List<Language>>(languageProvider);
+
             if (language.isEmpty) {
               return const CircularProgressIndicator();
             }
