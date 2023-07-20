@@ -1,6 +1,6 @@
 import 'package:arre_assessment/utils/global.dart';
 import 'package:arre_assessment/utils/image_path.dart';
-import 'package:arre_assessment/utils/themeprovider.dart';
+import 'package:arre_assessment/provider/theme_provider.dart';
 import 'package:arre_assessment/widget/text_widget.dart';
 import 'package:arre_assessment/widget/toggle_switch.dart';
 import 'package:flutter/material.dart';

@@ -40,7 +40,10 @@ class HeadingText extends StatelessWidget {
 
 class NormalText extends StatelessWidget {
   final String text;
-  const NormalText({super.key, required this.text});
+  final double? fontSize;
+  final Color? textColor;
+  const NormalText(
+      {super.key, required this.text, this.fontSize, this.textColor});
 
   bool isDark(context) => Theme.of(context).brightness == Brightness.dark;
 
@@ -49,9 +52,10 @@ class NormalText extends StatelessWidget {
     return Text(
       text,
       style: Theme.of(context).textTheme.titleMedium!.copyWith(
+            fontSize: fontSize ?? 14.0,
             color: isDark(context)
-                ? Global.textColor.withOpacity(0.8)
-                : Colors.black,
+                ? textColor ?? Global.textColor.withOpacity(0.8)
+                : textColor ?? Colors.black,
           ),
     );
   }

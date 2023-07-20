@@ -6,4 +6,5 @@ class ImagePath {
   static const logoutIcon = "assets/image/logout_icon.svg";
   static const switchImage = "assets/image/switch_image.svg";
   static const switchWithoutBgImage = "assets/image/switch_without_bg.svg";
+  static const logoImage = "assets/image/logo.png";
 }

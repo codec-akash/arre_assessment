@@ -1,5 +1,6 @@
 import 'package:arre_assessment/utils/image_path.dart';
 import 'package:arre_assessment/utils/strings.dart';
+import 'package:arre_assessment/widget/bottom_sheet.dart';
 import 'package:arre_assessment/widget/list_tile_card.dart';
 import 'package:arre_assessment/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   ListTileCard(
                     svgPath: ImagePath.languageIcon,
                     text: Strings.language,
-                    onButtonTap: () {},
+                    onButtonTap: () async {
+                      var res = await showModalBottomSheet(
+                        context: context,
+                        backgroundColor:
+                            Theme.of(context).scaffoldBackgroundColor,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(15))),
+                        builder: (context) => const BottomModal(),
+                      );
+                      if (res == true) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(Strings.languageUpdated)));
+                        }
+                      }
+                    },
                   ),
                   const ListTileSwitch(text: Strings.interfaceText),
                   const ListTileText(text: Strings.term),
@@ -80,6 +98,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     textColor: Theme.of(context).primaryColor,
                     onButtonTap: () {},
                   ),
+                ],
+              ),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Center(
+                    child: Image.asset(
+                      ImagePath.logoImage,
+                      height: 110,
+                    ),
+                  )
                 ],
               ),
             ),
